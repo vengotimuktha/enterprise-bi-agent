@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/mukth/Desktop/enterprise_bi_agent/mlruns/466590801358592872/400c2f2f0630482c93ad01177397aaf5/artifacts
+end_time: 1747272820092
+entry_point_name: ''
+experiment_id: '466590801358592872'
+lifecycle_stage: active
+run_id: 400c2f2f0630482c93ad01177397aaf5
+run_name: query-20250514-213340
+run_uuid: 400c2f2f0630482c93ad01177397aaf5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1747272820028
+status: 3
+tags: []
+user_id: mukth

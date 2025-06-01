@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enterprise BI Agent</title>
+</head>
+<body style="font-family: Arial, sans-serif; padding: 20px;">
+    <h1>Upload PDF & Ask Questions</h1>
+
+    <!-- Upload Form -->
+    <form id="uploadForm" style="margin-bottom: 20px;">
+        <input type="file" id="fileInput" name="file" accept=".pdf" required />
+        <button type="submit" id="uploadBtn">Upload</button>
+    </form>
+
+    <!-- Upload result -->
+    <div id="uploadStatus" style="margin-bottom: 10px; color: green;"></div>
+
+    <!-- Upload history -->
+    <h3>Upload History</h3>
+    <ul id="uploadHistory" style="font-size: 14px; margin-bottom: 30px;"></ul>
+
+    <hr>
+
+    <!-- Query Form -->
+    <h2>Ask a Question</h2>
+    <form id="queryForm" style="margin-bottom: 10px;">
+        <input type="text" id="queryInput" placeholder="Enter your question here" required style="width: 300px;" />
+        <!-- Hidden input to store index path -->
+        <input type="hidden" id="indexPathInput" name="index_path" />
+        <button type="submit" id="queryBtn">Ask</button>
+    </form>
+
+    <!-- Query result -->
+    <div id="queryResult" style="margin-top: 15px; font-size: 16px;"></div>
+
+    <!-- JavaScript logic -->
+    <script>
+        // Upload PDF
+        document.getElementById("uploadForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const fileInput = document.getElementById("fileInput");
+            const formData = new FormData();
+            formData.append("file", fileInput.files[0]);
+
+            const uploadBtn = document.getElementById("uploadBtn");
+            uploadBtn.disabled = true;
+            uploadBtn.innerText = "Uploading...";
+
+            fetch("/upload-pdf", {
+                method: "POST",
+                body: formData,
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (data.status === "success") {
+                    document.getElementById("uploadStatus").innerHTML =
+                        `✅ Uploaded: <b>${data.filename}</b><br>📅 Time: ${data.timestamp}`;
+
+                    // Set index path for next query
+                    document.getElementById("indexPathInput").value = data.index_path;
+
+                    const historyItem = document.createElement("li");
+                    historyItem.innerText = `${data.filename} - ${data.timestamp}`;
+                    document.getElementById("uploadHistory").appendChild(historyItem);
+                } else {
+                    document.getElementById("uploadStatus").innerText = "❌ Upload failed.";
+                }
+            })
+            .catch(() => {
+                document.getElementById("uploadStatus").innerText = "❌ Upload error occurred.";
+            })
+            .finally(() => {
+                uploadBtn.disabled = false;
+                uploadBtn.innerText = "Upload";
+            });
+        });
+
+        // Query PDF
+        document.getElementById("queryForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const question = document.getElementById("queryInput").value;
+            const indexPath = document.getElementById("indexPathInput").value;
+            const queryBtn = document.getElementById("queryBtn");
+
+            if (!indexPath) {
+                document.getElementById("queryResult").innerHTML =
+                    `<span style="color: red;">❌ Please upload a PDF first.</span>`;
+                return;
+            }
+
+            queryBtn.disabled = true;
+            queryBtn.innerText = "Asking...";
+
+            const formData = new FormData();
+            formData.append("question", question);
+            formData.append("index_path", indexPath);
+
+            fetch("/query", {
+                method: "POST",
+                body: formData
+            })
+            .then(response => {
+                if (!response.ok) {
+                    return response.text().then(text => { throw new Error(text); });
+                }
+                return response.json();
+            })
+            .then(data => {
+                document.getElementById("queryResult").innerHTML =
+                    `<b>Answer:</b> ${data.answer}`;
+            })
+            .catch(err => {
+                document.getElementById("queryResult").innerHTML =
+                    `<span style="color: red;">❌ ${err.message}</span>`;
+            })
+            .finally(() => {
+                queryBtn.disabled = false;
+                queryBtn.innerText = "Ask";
+            });
+        });
+    </script>
+</body>
+</html>

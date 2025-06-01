@@ -1,0 +1,6 @@
+timestamp,step,status
+2025-05-01T23:33:53.204982,Read CSV,Success
+2025-05-01T23:33:53.204982,Drop fully null rows,Success
+2025-05-01T23:33:53.204982,Fill partial nulls,Success
+2025-05-01T23:33:53.204982,Cast types,Success
+2025-05-01T23:33:53.204982,Write cleaned.parquet,Success

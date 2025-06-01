@@ -1,0 +1,18 @@
+[2025-05-01 16:07:45] Starting ingestion from folder: C:\Users\mukth\Desktop\enterprise_bi_agent\data\csv
+[2025-05-01 16:21:17] [FAILURE] Ingestion error: An error occurred while calling o26.csv
+[2025-05-01 16:22:12] Starting ingestion from folder: C:\Users\mukth\Desktop\enterprise_bi_agent\data\csv
+[2025-05-01 16:37:30] [FAILURE] Ingestion error: An error occurred while calling o26.csv
+[2025-05-01 16:39:44] Starting ingestion from folder: C:\Users\mukth\Desktop\enterprise_bi_agent\data\csv
+[2025-05-01 16:44:40] [FAILURE] Ingestion error: An error occurred while calling o26.csv
+[2025-05-01 16:45:59] Starting ingestion from folder: C:\Users\mukth\Desktop\enterprise_bi_agent\data\csv
+[2025-05-01 16:46:47] [FAILURE] Ingestion error: An error occurred while calling o26.csv
+[2025-05-01 16:52:54] Starting ingestion from folder: C:\Users\mukth\Desktop\enterprise_bi_agent\data\csv
+[2025-05-01 16:59:45] [FAILURE] Ingestion error: An error occurred while calling o26.csv
+[2025-05-01 17:05:44] Starting ingestion from folder: C:\Users\mukth\Desktop\enterprise_bi_agent\data\csv
+[2025-05-01 17:24:50] [FAILURE] Ingestion error: An error occurred while calling o26.csv
+[2025-05-01 17:26:21] Starting ingestion from folder: C:\Users\mukth\Desktop\enterprise_bi_agent\data\csv
+[2025-05-01 17:26:27] [FAILURE] Ingestion error: 'charmap' codec can't encode character '\ufffd' in position 223: character maps to <undefined>
+[2025-05-01 17:31:08] Starting ingestion from folder: C:\Users\mukth\Desktop\enterprise_bi_agent\data\csv
+[2025-05-01 17:31:14] [SUCCESS] Ingestion completed and saved to output folder.
+[2025-05-01 17:51:38] Starting ingestion from folder: C:\Users\mukth\Desktop\enterprise_bi_agent\data\csv
+[2025-05-01 17:51:45] [SUCCESS] Ingestion completed and saved to output folder.
