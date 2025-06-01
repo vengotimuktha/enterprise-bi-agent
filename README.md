@@ -101,18 +101,18 @@ python rag_pipeline.py
 ## GCP Deployment Guide
 Prerequisite: Docker + GCP account with Cloud Run, GCS setup.
 
-## Deploy to GCP Cloud Run
+ Deploy to GCP Cloud Run
 
-# 1. Build Docker image
+ 1. Build Docker image
 docker build -t enterprise-bi-agent .
 
-# 2. Tag for Google Artifact Registry
+ 2. Tag for Google Artifact Registry
 docker tag enterprise-bi-agent gcr.io/YOUR_PROJECT_ID/enterprise-bi-agent
 
-# 3. Push image
+ 3. Push image
 docker push gcr.io/YOUR_PROJECT_ID/enterprise-bi-agent
 
-# 4. Deploy to Cloud Run
+ 4. Deploy to Cloud Run
 gcloud run deploy enterprise-bi-agent \
   --image gcr.io/YOUR_PROJECT_ID/enterprise-bi-agent \
   --platform managed \
