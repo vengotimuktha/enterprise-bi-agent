@@ -1,0 +1,16 @@
+# Ignore large binaries
+*.bin
+*.lib
+*.onnx
+*.jar
+
+# Ignore virtual environments
+env/
+*.pyc
+__pycache__/
+
+# Ignore logs and data
+*.csv
+*.parquet
+data/
+logs/
