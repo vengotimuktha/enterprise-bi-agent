@@ -23,7 +23,7 @@ The system is optimized for structured and unstructured documents, supporting re
 > _Semantic Q&A over documents + API demo screenshot here 
 
 <!-- Replace with actual image when ready -->
-![Preview Placeholder](Demo_Placeholder.png)
+![Enterprise BI Agent Demo](Demo_Placeholder.png)
 
 ---
 
