@@ -20,10 +20,10 @@ The system is optimized for structured and unstructured documents, supporting re
 
 ## Preview
 
-> _Semantic Q&A over documents + API demo screenshot here (insert later)_
+> _Semantic Q&A over documents + API demo screenshot here 
 
 <!-- Replace with actual image when ready -->
-![Preview Placeholder](https://github.com/vengotimuktha/enterprise-bi-agent/blob/main/docs/demo-placeholder.png)
+![Preview Placeholder](https://github.com/vengotimuktha/enterprise-bi-agent/Demo_Placeholder.png)
 
 ---
 
@@ -119,16 +119,16 @@ python rag_pipeline.py
 **Prerequisites:** Docker, GCP CLI, Cloud Run + Artifact Registry enabled
 
 
-# 1. Build Docker image
+ 1. Build Docker image
 docker build -t enterprise-bi-agent .
 
-# 2. Tag image
+ 2. Tag image
 docker tag enterprise-bi-agent gcr.io/YOUR_PROJECT_ID/enterprise-bi-agent
 
-# 3. Push to Artifact Registry
+ 3. Push to Artifact Registry
 docker push gcr.io/YOUR_PROJECT_ID/enterprise-bi-agent
 
-# 4. Deploy to Cloud Run
+ 4. Deploy to Cloud Run
 gcloud run deploy enterprise-bi-agent \
   --image gcr.io/YOUR_PROJECT_ID/enterprise-bi-agent \
   --platform managed \
