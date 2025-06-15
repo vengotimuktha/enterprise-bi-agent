@@ -43,7 +43,7 @@ enterprise_bi_agent/
 ├── frontend/                    # React/Streamlit POC frontend
 ├── data/, vectorstores/         # Document input + FAISS DB
 
----
+
 ```
 ##  Key Features
 
